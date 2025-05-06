@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ken Lo - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Apply Inter font globally */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* Simple fade-in animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in-section {
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0; /* Start hidden */
+      }
+      /* Add a subtle gradient background */
+      body {
+        background: linear-gradient(
+          to bottom right,
+          #f0f4f8,
+          #d9e2ec
+        ); /* Light mode gradient */
+      }
+      /* Optional: Dark mode gradient (Uncomment if needed) */
+      /*
+        @media (prefers-color-scheme: dark) {
+            body {
+                 background: linear-gradient(to bottom right, #1f2937, #111827);
+                 color: #e5e7eb;
+            }
+            .dark\:bg-gray-800 { background-color: #1f2937; }
+            .dark\:text-gray-300 { color: #d1d5db; }
+            .dark\:text-white { color: #ffffff; }
+            .dark\:border-gray-700 { border-color: #374151; }
+            .dark\:hover\:bg-gray-700:hover { background-color: #374151; }
+            .dark\:placeholder-gray-500::placeholder { color: #6b7280; }
+        }
+        */
+
+      /* Custom scrollbar (optional) */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body class="text-gray-800 dark:bg-gray-900 dark:text-gray-300 antialiased">
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+          <a href="#">Ken Lo.</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a
+            href="#about"
+            class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-gray-600 dark:text-gray-300 focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+        <a
+          href="#about"
+          class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+          >Projects</a
+        >
+        <a
+          href="#skills"
+          class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+          >Skills</a
+        >
+        <a
+          href="#contact"
+          class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <section
+      id="hero"
+      class="min-h-screen flex items-center bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-black py-20 px-6"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
+        <div
+          class="md:w-1/2 text-center md:text-left mb-10 md:mb-0 fade-in-section"
+          style="animation-delay: 0.2s"
+        >
+          <h1
+            class="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white mb-4"
+          >
+            Hi 👋, I'm Ken Lo
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-indigo-600 dark:text-indigo-400 mb-6"
+          >
+            A Passionate Developer
+          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            A passionate coder with a deep love for technology and continuous
+            learning.
+          </p>
+          <a
+            href="#projects"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-block shadow-lg"
+          >
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            class="ml-4 border border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-gray-700 font-bold py-3 px-6 rounded-lg transition duration-300 inline-block"
+          >
+            Get In Touch
+          </a>
+        </div>
+        <div
+          class="md:w-1/2 flex justify-center fade-in-section"
+          style="animation-delay: 0.4s"
+        >
+          <!-- Add Image -->
+          <!-- <img
+            src="https://placehold.co/400x400/E2E8F0/AAAAAA?text=Your+Image"
+            alt="Your Name - Profile Image or Illustration"
+            class="rounded-full shadow-2xl w-64 h-64 md:w-80 md:h-80 object-cover"
+          /> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 bg-white dark:bg-gray-800">
+      <div class="container mx-auto fade-in-section">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
+        >
+          About Me
+        </h2>
+        <div
+          class="max-w-3xl mx-auto text-center text-lg text-gray-600 dark:text-gray-300 space-y-4"
+        >
+          <p>
+            Hello! I’m Ken Lo, a passionate coder with a deep love for
+            technology and continuous learning. From a young age, I was
+            fascinated by how things work behind the scenes, which led me to
+            explore the world of programming. I thrive on solving complex
+            problems and enjoy the challenge of bringing ideas to life through
+            code. Whether I’m building web applications or experimenting with
+            new programming languages, I find joy in the process and the endless
+            possibilities that coding offers. Self-motivation is at the core of
+            my journey. I believe that learning never stops, and I constantly
+            seek out new knowledge and skills to enhance my expertise.
+          </p>
+          <p>
+            Whether through online courses, coding boot camps, or personal
+            projects, I always push myself to grow and improve. I’m excited to
+            connect with fellow enthusiasts and collaborate on innovative
+            projects. Let’s create something amazing together!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
+        >
+          My Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 fade-in-section"
+            style="animation-delay: 0.3s"
+          >
+            <img
+              src="./assets/React_investment_calculator.png"
+              alt="Project 1 Screenshot"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3
+                class="text-xl font-semibold mb-2 text-gray-800 dark:text-white"
+              >
+                React_Investment_Calculator
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                This aim to create a simple investment calculator using React.
+                The calculator allows users to input their investment amount,
+                the expected annual return rate, and the number of years they
+                plan to invest. It then calculates the future value of the
+                investment based on these inputs.
+              </p>
+              <div class="flex space-x-2">
+                <span
+                  class="bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                  >React</span
+                >
+                <span
+                  class="bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                  >CSS</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="mt-4 flex space-x-4">
+                <!-- <a
+                  href="#"
+                  target="_blank"
+                  class="text-indigo-600 dark:text-indigo-400 hover:underline"
+                  >Live Demo</a
+                > -->
+                <a
+                  href="https://github.com/kanlo456/React_Investment_Calculator/tree/main"
+                  target="_blank"
+                  class="text-gray-500 dark:text-gray-400 hover:underline"
+                  ><i class="fab fa-github text-xl"></i>GitHub Repo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 px-6 bg-white dark:bg-gray-800">
+      <div class="container mx-auto fade-in-section">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
+        >
+          Skills
+        </h2>
+        <div
+          class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center"
+        >
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">HTML5</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">CSS3</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-js-square text-4xl text-yellow-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">
+              JavaScript
+            </p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-react text-4xl text-cyan-400 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">React</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-react text-4xl text-cyan-400 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">
+              React Native
+            </p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">Node.js</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-python text-4xl text-blue-400 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">Python</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-git-alt text-4xl text-red-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">Git</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fas fa-database text-4xl text-purple-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">SQL</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fab fa-flutter text-4xl text-blue-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">Flutte</p>
+          </div>
+          <div
+            class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow hover:shadow-md transition duration-300"
+          >
+            <i class="fa-brands fa-java text-4xl text-orange-500 mb-2"></i>
+            <p class="font-medium text-gray-700 dark:text-gray-300">Java</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="py-20 px-6 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-black"
+    >
+      <div class="container mx-auto fade-in-section">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
+        >
+          Get In Touch! LET'S WORK TOGETHER!
+        </h2>
+        <div
+          class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"
+        >
+          <p class="text-center text-gray-600 dark:text-gray-300 mb-6">
+            Have a question or want to work together? Feel free to reach out!
+          </p>
+          <div class="space-y-4 text-center">
+            <div>
+              <i
+                class="fas fa-envelope text-indigo-600 dark:text-indigo-400 mr-2"
+              ></i>
+              <a
+                href="mailto:kanson456@gmail.com"
+                class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                >kanson456@gmail.com</a
+              >
+            </div>
+            <div>
+              <i
+                class="fab fa-linkedin text-indigo-600 dark:text-indigo-400 mr-2"
+              ></i>
+              <a
+                href="https://www.linkedin.com/in/kam-hong-lo-217322213/"
+                target="_blank"
+                class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                >Ken Lo</a
+              >
+            </div>
+            <div>
+              <i
+                class="fab fa-github text-indigo-600 dark:text-indigo-400 mr-2"
+              ></i>
+              <a
+                href="https://github.com/kanlo456"
+                target="_blank"
+                class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                >Ken Lo</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-100 dark:bg-gray-800 py-6 px-6">
+      <div
+        class="container mx-auto text-center text-gray-600 dark:text-gray-400"
+      >
+        <p>Made With ❤ by &copy; Ken Lo 2025 All rights reserved.</p>
+        <div class="mt-4 space-x-4">
+          <a
+            href="https://www.linkedin.com/in/kam-hong-lo-217322213/"
+            target="_blank"
+            class="hover:text-indigo-600 dark:hover:text-indigo-400"
+            ><i class="fab fa-linkedin text-xl"></i
+          ></a>
+          <a
+            href="https://github.com/kanlo456"
+            target="_blank"
+            class="hover:text-indigo-600 dark:hover:text-indigo-400"
+            ><i class="fab fa-github text-xl"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when a link is clicked (optional)
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Intersection Observer for Fade-in Effect
+      const sections = document.querySelectorAll(".fade-in-section");
+
+      const observerOptions = {
+        root: null, // relative to the viewport
+        rootMargin: "0px",
+        threshold: 0.1, // trigger when 10% of the element is visible
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+            // Optional: Unobserve after animation plays once
+            // observer.unobserve(entry.target);
+          } else {
+            // Optional: Reset animation if element scrolls out of view
+            // entry.target.style.animationPlayState = 'paused';
+            // entry.target.style.opacity = '0'; // Reset opacity if needed
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => {
+        // Initially pause the animation
+        section.style.animationPlayState = "paused";
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
